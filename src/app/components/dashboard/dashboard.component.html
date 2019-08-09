@@ -1,0 +1,33 @@
+
+
+      <div class="container-fluid" >
+            <div class="row" style="margin-top: 60px">
+              <div class="col-sm-4" ><app-sidebar></app-sidebar></div>
+              <div *ngIf="!roleCheck" >
+                <div *ngFor="let item of displayImage">
+                    <img style="width:200px;height: 200" class="img-responsive" 
+                [src]='url + item.imageId'>
+                </div>
+              
+
+              </div>
+              <div class="col-sm-6" *ngIf="roleCheck">
+                    <div class="container">
+                            <div class="row">
+                                    <label>User name</label>
+  <select [ngModel]="userid" (ngModelChange)="onChange($event)">
+      <option [ngValue]="item._id" *ngFor="let item of userData">{{item.username}}</option>
+
+  </select>
+  <input type="button" name="foo"  (click)="onCheckChange($event)">select all<br/>
+  <input type="file" name="pic" (change)="uploadImage($event)" accept="image/*">
+  <button type="submit" (click)="imageassign()"> Assgin role</button>
+  <button type="button" (click)="charts()"> check out charts</button>
+                            </div>
+                        </div>
+              </div>
+            </div>
+
+            
+          </div>
+    
